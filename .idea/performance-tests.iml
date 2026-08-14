@@ -4,7 +4,7 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.14 (performance-tests) (2)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="~/Проекты/Backup_E_2026/Automation QA courses/performance-tests/venv" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>

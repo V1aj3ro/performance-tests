@@ -11,7 +11,7 @@ xml_data = """
         <city>New York</city>
         <zip>10001</zip>
     </address>
-    <age>30</age>
+    <age>30</age> 
 </person>
 """
 
