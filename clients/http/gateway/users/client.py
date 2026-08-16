@@ -32,4 +32,3 @@ class UsersGatewayHTTPClient(HTTPClient):
         """
         return self.post(f"/api/v1/users", json=request)
 
-users_client = UsersGatewayHTTPClient(client=Client(base_url="http://localhost:8003"))
