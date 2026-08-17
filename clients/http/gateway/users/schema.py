@@ -31,7 +31,8 @@ class CreateUserRequestSchema(BaseModel):
     first_name: str = Field(alias="firstName")
     middle_name: str = Field(alias="middleName")
     phone_number: str = Field(alias="phoneNumber")
-['account']['cards'][0]['id']
+
+
 class CreateUserResponseSchema(BaseModel):
     """
     Описание структуры ответа создания пользователя.
