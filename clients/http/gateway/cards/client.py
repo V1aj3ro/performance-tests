@@ -5,7 +5,6 @@ from httpx import Response
 from clients.http.client import HTTPClient
 from clients.http.gateway.client import build_gateway_http_client
 
-
 class CardDict(TypedDict):
     """
     Описание структуры карты.
