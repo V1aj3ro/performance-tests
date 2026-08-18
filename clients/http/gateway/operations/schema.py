@@ -2,7 +2,7 @@ from enum import StrEnum
 
 from pydantic import BaseModel, Field, ConfigDict
 
-from tools.faker import fake
+from tools.fakers import fake
 
 
 class OperationType(StrEnum):
