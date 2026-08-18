@@ -22,7 +22,7 @@ class UsersGatewayGRPCClient(GRPCClient):
         """
         super().__init__(channel)
 
-        self.stub = UsersGatewayServiceStub(channel)  # gRPC-стаб, сгенерированный из .proto
+        self.stub = UsersGatewayServiceStub(channel)
 
     def get_user_api(self, request: GetUserRequest) -> GetUserResponse:
         """
