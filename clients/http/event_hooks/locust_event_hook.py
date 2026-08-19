@@ -1,6 +1,8 @@
-from httpx import Request, Response, HTTPError, HTTPStatusError
-from locust.env import Environment
 import time
+
+from httpx import Request, Response, HTTPStatusError, HTTPError
+from locust.env import Environment
+
 
 def locust_request_event_hook(request: Request) -> None:
     """
@@ -9,7 +11,8 @@ def locust_request_event_hook(request: Request) -> None:
     Сохраняет текущее время в `request.extensions["start_time"]`,
     чтобы потом использовать его для расчёта времени ответа.
     """
-    request.extensions['start_time'] = time.time()
+    request.extensions["start_time"] = time.time()
+
 
 def locust_response_event_hook(environment: Environment):
     """
@@ -22,8 +25,10 @@ def locust_response_event_hook(environment: Environment):
     :param environment: Объект окружения Locust, через который отправляются метрики.
     :return: Функция-хук для HTTPX response event hook.
     """
-    def inner(response: Response):
+
+    def inner(response: Response) -> None:
         exception: HTTPError | HTTPStatusError | None = None
+
         try:
             response = response.raise_for_status()
         except (HTTPError, HTTPStatusError) as error:
@@ -43,7 +48,7 @@ def locust_response_event_hook(environment: Environment):
             exception=exception,
             request_type="HTTP",
             response_time=response_time,
-            response_lenght=response_length
+            response_length=response_length,
         )
 
     return inner
