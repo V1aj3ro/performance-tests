@@ -1,12 +1,12 @@
 from clients.http.gateway.accounts.schema import OpenDepositAccountResponseSchema, GetAccountsResponseSchema
 from clients.http.gateway.users.schema import CreateUserResponseSchema
-from clients.http.gateway.locust import GatewayHTTPSequentialTaskSet
+from clients.http.gateway.locust import GatewayHTTPTaskSet
 from locust import User, between, task
 
 
 
 
-class GetAccountsTaskSet(GatewayHTTPSequentialTaskSet):
+class GetAccountsTaskSet(GatewayHTTPTaskSet):
     create_user_response: CreateUserResponseSchema | None = None
     open_deposit_account_response: OpenDepositAccountResponseSchema | None = None
     get_accounts_response: GetAccountsResponseSchema | None = None

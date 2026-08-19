@@ -1,4 +1,4 @@
-from clients.grpc.gateway.locust import GatewayGRPCSequentialTaskSet
+from clients.grpc.gateway.locust import GatewayGRPCTaskSet
 from locust import User, between, task
 
 from contracts.services.gateway.accounts.rpc_get_accounts_pb2 import GetAccountsResponse
@@ -6,7 +6,7 @@ from contracts.services.gateway.accounts.rpc_open_deposit_account_pb2 import Ope
 from contracts.services.gateway.users.rpc_create_user_pb2 import CreateUserResponse
 
 
-class GetAccountsTaskSet(GatewayGRPCSequentialTaskSet):
+class GetAccountsTaskSet(GatewayGRPCTaskSet):
     create_user_response: CreateUserResponse | None = None
     open_deposit_account_response: OpenDepositAccountResponse | None = None
     get_accounts_response: GetAccountsResponse | None = None
