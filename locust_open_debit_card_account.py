@@ -1,11 +1,11 @@
-from locust import HttpUser, between, task
+from locust import between, task, User
 
 from clients.http.gateway.accounts.client import AccountsGatewayHTTPClient, build_accounts_gateway_locust_http_client
 from clients.http.gateway.users.client import UsersGatewayHTTPClient, build_users_gateway_locust_http_client
 from clients.http.gateway.users.schema import CreateUserResponseSchema
-from tools.fakers import fake
 
-class OpenDebitCardAccountScenarioUser(HttpUser):
+
+class OpenDebitCardAccountScenarioUser(User):
     host = 'localhost'
     wait_time = between(1, 3)
 
