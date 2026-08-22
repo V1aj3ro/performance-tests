@@ -1,7 +1,7 @@
 from locust import events, task
 from locust.env import Environment
 
-from clients.http.gateway.locust import GatewayHTTPTaskSet
+from clients.grpc.gateway.locust import GatewayGRPCTaskSet
 from seeds.scenarios.existing_user_get_operations import ExistingUserGetOperationsSeedsScenario
 from seeds.schema.result import SeedUserResult
 from tools.locust.user import LocustBaseUser
@@ -15,7 +15,7 @@ def init(environment: Environment, **kwargs):
     environment.seeds = seeds_scenario.load()
 
 
-class GetOperationsTaskSet(GatewayHTTPTaskSet):
+class GetOperationsTaskSet(GatewayGRPCTaskSet):
     seed_user: SeedUserResult
 
     def on_start(self) -> None:
