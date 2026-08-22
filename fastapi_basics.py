@@ -62,12 +62,6 @@ async def create_user(user: User = Body(..., description="Данные ново�
 
 @router.post("/v1/basics/register", summary="Регистрация нового пользователя с проверкой возраста")
 async def register_user(user: User = Depends(validate_min_age(min_age=21))):
-    min_age = 21
-    if user.age < min_age:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail=f"User must be at leat {min_age} years old"
-        )
     return {
         "message":f"User {user.username} registered successfully",
         "email": user.email,
