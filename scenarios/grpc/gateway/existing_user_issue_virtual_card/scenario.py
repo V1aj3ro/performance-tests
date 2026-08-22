@@ -1,4 +1,4 @@
-from clients.http.gateway.locust import GatewayHTTPTaskSet
+from clients.grpc.gateway.locust import GatewayGRPCTaskSet
 from locust import events, task
 from locust.env import Environment
 from seeds.scenarios.existing_user_get_documents import ExistingUserGetDocumentsSeedsScenario
@@ -14,7 +14,7 @@ def init(environment: Environment, **kwargs):
 
     environment.seeds = seeds_scenarios.load()
 
-class IssueVirtualCardTaskSet(GatewayHTTPTaskSet):
+class IssueVirtualCardTaskSet(GatewayGRPCTaskSet):
     seed_user: SeedUserResult
 
     def on_start(self) -> None:
